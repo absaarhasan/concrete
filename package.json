@@ -1,11 +1,8 @@
 {
-  "name": "bookoflife",
+  "name": "Concrete Practical",
   "version": "1.0.0",
-  "description": "eBook Display System",
+  "description": "Concrete Practical",
   "main": "public/index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Absaar Hasan",
   "license": "ISC",
   "devDependencies": {
@@ -15,16 +12,8 @@
     "grunt-contrib-sass": "^0.9.2",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-ng-annotate": "^1.0.1",
-    "grunt-svgmin": "^2.0.1",
-    "grunt-svgo": "^0.1.0",
-    "jasmine-core": "^2.3.4",
-    "karma": "^0.13.10",
-    "karma-chrome-launcher": "^0.2.0",
-    "karma-jasmine": "^0.3.6",
-    "karma-phantomjs-launcher": "^0.2.1",
-    "phantomjs": "^1.9.18",
-    "protractor": "^2.1.0"
+    "grunt-ng-annotate": "^1.0.1"
+
   },
   "dependencies": {
     "express": "^4.12.4"

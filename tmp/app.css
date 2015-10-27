@@ -1,456 +1,68 @@
-/*------------- GLOBAL VARS -----------------*/
-/*------------- FUNCTIONS -----------------*/
-/*------------- MIXINS -----------------*/
-/*------------- GLOBAL STYLES -----------------*/
 * {
   border: 0;
-  outline: 0;
   margin: 0;
   padding: 0;
-  font-family: 'tk-arno-pro'; }
+  font-family: arial;
+  outline: 0; }
 
-sup {
-  line-height: 1em; }
-
-/*------------- canvas -----------------*/
-html, body {
-  height: 100%;
-  width: 100%;
-  overflow: hidden; }
-
-/*------------- ajax loader -----------------*/
-body {
-  background-image: url("../images/712.gif");
-  background-repeat: no-repeat;
-  background-position: center center; }
-
-/*------------- Menu System -----------------*/
-div.menu {
-  position: absolute;
-  z-index: 10;
-  left: 0;
-  top: -100%;
-  background-color: #1288a1;
-  width: 100%;
-  height: 100%;
-  -webkit-transition: top 0.15s ease-out;
-  -moz-transition: top 0.15s ease-out;
-  -o-transition: top 0.15s ease-out;
-  -ms-transition: top 0.15s ease-out;
-  transition: top 0.15s ease-out;
-  overflow-y: scroll; }
-  div.menu.show {
-    top: 0; }
-  div.menu .close {
-    text-align: center; }
-    div.menu .close button {
-      text-indent: -999999px;
-      background-repeat: no-repeat;
-      background-image: url("../images/icon_close.svg ");
-      background-size: 100% 100%;
-      background-color: transparent;
-      cursor: pointer; }
-      div.menu .close button:hover {
-        background-image: url("../images/icon_close_hover.svg "); }
-  div.menu ul {
-    box-sizing: border-box;
-    margin: 0 auto;
-    list-style-type: none;
-    line-height: 0;
-    font-size: 0; }
-  div.menu li {
-    box-sizing: border-box;
-    width: 100%;
-    line-height: 0;
-    font-size: 0; }
-  div.menu .social span {
-    box-sizing: border-box;
+header {
+  background-color: #000;
+  padding: 0.5em 20%; }
+  header h1 {
     display: inline-block;
-    line-height: auto;
-    text-align: center; }
-    div.menu .social span a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 400;
-      position: relative;
-      display: inline-block; }
-  div.menu .social .icon {
-    background-repeat: no-repeat;
-    background-position: center center; }
-  div.menu .facebook span {
-    background-color: #394f84; }
-    div.menu .facebook span.icon {
-      background-image: url("../images/social_facebook.svg "); }
-  div.menu .twitter span {
-    background-color: #1a92c9; }
-    div.menu .twitter span.icon {
-      background-image: url("../images/social_twitter.svg "); }
-  div.menu .google span {
-    background-color: #bf3831; }
-    div.menu .google span.icon {
-      background-image: url("../images/social_googleplus.svg "); }
-  div.menu .fonts {
-    box-sizing: border-box;
-    display: inline-block;
-    position: relative;
-    border: 1px solid #fff;
-    text-align: center; }
-    div.menu .fonts button {
-      box-sizing: border-box;
-      display: inline-block;
-      background-color: transparent;
-      text-indent: -99999px;
-      background-repeat: no-repeat;
-      background-position: center center;
-      cursor: pointer;
-      line-height: inherit; }
-      div.menu .fonts button.plus {
-        background-image: url("../images/icon_plus.svg "); }
-      div.menu .fonts button.minus {
-        background-image: url("../images/icon_minus.svg "); }
-      div.menu .fonts button.text {
-        background-image: url("../images/icon_text.svg "); }
-  div.menu .note {
-    text-align: center; }
-    div.menu .note p {
+    color: #fff;
+    font-size: 2em; }
+    header h1 span {
       color: #fff; }
 
-/*------------- Screen Div -----------------*/
-.screen {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 100%;
-  background-color: #fff;
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  -webkit-transition: left 0.15s ease-out;
-  -moz-transition: left 0.15s ease-out;
-  -o-transition: left 0.15s ease-out;
-  -ms-transition: left 0.15s ease-out;
-  transition: left 0.15s ease-out; }
-  .screen.left {
-    left: -100%; }
-  .screen.right {
-    left: 100%; }
-  .screen.active {
-    left: 0;
-    z-index: 2; }
-  .screen.image {
-    text-align: center;
-    z-index: 4; }
-  .screen img {
-    height: 95%;
-    width: auto;
-    max-width: 100%; }
-  .screen p {
+nav {
+  background-color: #eaeaea;
+  padding: 0.5em 20%; }
+  nav input.text {
+    width: 60%;
+    height: 1.5em;
+    border: 1px solid #666;
     color: #333;
-    text-align: justify; }
-  .screen ul {
-    list-style-position: inside; }
-    .screen ul li {
-      color: #333; }
-  .screen h3 {
-    background-color: red;
-    text-align: center;
-    color: #fff;
-    margin-top: 25%;
-    padding: 1em;
-    font-size: 2.5em; }
-
-/*------------- navigation options -----------------*/
-.menu-button {
-  z-index: 3;
-  position: absolute;
-  background-image: url("../images/icon_menu.svg ");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100%;
-  left: 50%;
-  background-color: transparent;
-  text-indent: -999999px;
-  cursor: pointer; }
-  .menu-button:hover, .menu-button:active {
-    background-image: url("../images/icon_menu_hover.svg "); }
-
-.pagination {
-  z-index: 3;
-  position: absolute;
-  left: 50%; }
-  .pagination button {
-    position: absolute;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100%;
-    top: 0;
-    background-color: transparent;
-    text-indent: -99999999px;
-    cursor: pointer; }
-    .pagination button.prev {
-      left: 0;
-      background-image: url("../images/icon_left.svg "); }
-    .pagination button.prev:hover {
-      left: 0;
-      background-image: url("../images/icon_left_hover.svg "); }
-    .pagination button.next {
-      right: 0;
-      background-image: url("../images/icon_right.svg "); }
-    .pagination button.next:hover {
-      right: 0;
-      background-image: url("../images/icon_right_hover.svg "); }
-
-/* ---------------- BOOK CSS ------------------*/
-html.fullbook {
-  height: auto;
-  overflow: auto; }
-  html.fullbook body {
-    height: auto;
-    overflow: auto;
-    background-image: none; }
-
-.fulltext {
-  font-size: 1.4em; }
-  .fulltext img {
-    display: block;
-    margin: 0 auto;
-    width: 85%;
-    max-width: 50rem; }
-  .fulltext h2 {
-    font-size: 1.2em;
-    margin: 2em auto 0 auto;
-    color: #000;
-    width: 85%;
-    max-width: 45rem;
-    font-weight: 600;
-    display: block; }
-  .fulltext p {
+    font-weight: lighter;
     font-size: 1em;
-    margin: 1em auto 0 auto;
-    width: 85%;
-    line-height: 1.4em;
-    color: #333;
-    text-align: justify;
-    max-width: 45rem;
-    font-weight: 400;
-    display: block; }
-  .fulltext sup {
-    line-height: 1em; }
-  .fulltext ul {
-    list-style-position: inside;
-    max-width: 45rem;
+    box-sizing: border-box; }
+  nav input.button {
+    height: 1.5em;
+    padding: 0 1em;
+    color: #eaeaea;
+    font-weight: 200;
     font-size: 1em;
-    margin: 1em auto 0 auto;
-    width: 85%;
-    line-height: 1.4em; }
-    .fulltext ul li {
-      color: #333;
-      font-weight: 400; }
-  .fulltext h3 {
-    background-color: red;
-    text-align: center;
-    color: #fff;
-    margin-top: 25%;
-    padding: 1em;
-    font-size: 2em; }
-  .fulltext #preloader {
-    height: 0;
-    background-repeat: no-repeat;
-    background-position: center center; }
-    .fulltext #preloader.show {
-      height: 5rem;
-      background-image: url("../images/712.gif"); }
+    background-color: #000;
+    box-sizing: border-box; }
 
-.mobile {
-  display: none; }
+div.errors {
+  padding: 0.5em 20%; }
+  div.errors p {
+    color: red; }
 
-div.menu .close {
-  padding: 3.25rem 0 0.5rem 0; }
-  div.menu .close button {
-    height: 2.5rem;
-    width: 5rem; }
-div.menu ul {
-  width: 16.5rem; }
-div.menu li {
-  margin-top: 0.5rem; }
-div.menu .social span {
-  width: 5rem;
-  height: 5rem;
-  margin: 0 0.25rem;
-  font-size: 1.1rem;
-  line-height: 1rem; }
-  div.menu .social span a {
-    top: 2.15rem;
-    font-size: 0.85em;
-    letter-spacing: 0.05em; }
-    div.menu .social span a:hover, div.menu .social span a:active {
-      font-size: 1em; }
-div.menu .social .icon {
-  background-size: 40% 40%; }
-div.menu .fonts {
-  margin-left: 0.25rem;
-  width: 16rem; }
-  div.menu .fonts button {
-    width: 33%;
-    height: 3.75rem; }
-    div.menu .fonts button.plus {
-      background-size: 1.25rem auto; }
-    div.menu .fonts button.minus {
-      background-size: 1.25rem auto; }
-    div.menu .fonts button.text {
-      background-size: 1.2rem auto;
-      width: 34%; }
-div.menu .note {
-  margin-top: 0.5rem; }
-  div.menu .note p {
-    font-size: 0.8rem; }
-
-/*------------- Screen Div -----------------*/
-.screen p {
-  margin-top: 15%;
-  font-size: 1.8rem;
-  line-height: 2.4rem;
-  padding: 0 15%; }
-.screen ul {
-  margin-top: 15%;
-  padding: 0 15%; }
-  .screen ul li {
-    font-size: 1.8rem;
-    line-height: 2.4rem; }
-
-/*------------- navigation options -----------------*/
-.menu-button {
-  height: 2.55rem;
-  width: 2.25rem;
-  background-image: url("../images/icon_menu.svg ");
-  top: 5%;
-  margin-left: -1.15rem; }
-  .menu-button:hover, .menu-button:active {
-    background-image: url("../images/icon_menu_hover.svg "); }
-
-.pagination {
-  width: 15.5rem;
-  height: 2.25rem;
-  bottom: 10%;
-  margin-left: -7.75rem; }
-  .pagination button {
-    width: 1.8rem;
-    height: 2.2rem; }
-
-@media only screen and (min-width: 801px) {
-  html {
-    font-size: 16px; } }
-@media only screen and (min-width: 1000px) {
-  html {
-    font-size: 18px; } }
-@media only screen and (min-width: 1000px) and (min-height: 600px) {
-  html {
-    font-size: 16px; } }
-@media only screen and (min-width: 1200px) {
-  html {
-    font-size: 20px; } }
-@media only screen and (min-width: 1400px) {
-  html {
-    font-size: 22px; } }
-@media only screen and (min-width: 1600px) {
-  html {
-    font-size: 24px; } }
-@media only screen and (min-width: 1800px) {
-  html {
-    font-size: 26px; } }
-@media only screen and (min-width: 2000px) {
-  html {
-    font-size: 28px; } }
-@media only screen and (min-width: 2200px) {
-  html {
-    font-size: 30px; } }
-@media only screen and (min-width: 2400px) {
-  html {
-    font-size: 32px; } }
-@media only screen and (min-width: 2600px) {
-  html {
-    font-size: 34px; } }
-@media only screen and (max-device-width: 800px), only screen and (max-width: 800px) {
-  .mobile {
-    display: inherit; }
-
-  .desktop {
-    display: none; }
-
-  div.menu ul {
-    margin-top: 1.25rem; }
-
-  /*------------- Screen Div -----------------*/
-  .screen p {
-    margin-top: 1.66667rem;
-    font-size: 1.33333rem;
-    line-height: 2rem;
-    padding: 0 6%; }
-  .screen ul {
-    margin-top: 1.66667rem;
-    padding: 0 6%; }
-    .screen ul li {
-      font-size: 1.33333rem;
-      line-height: 1.83333rem; } }
-@media only screen and (max-device-width: 800px) and (max-width: 800px), only screen and (max-width: 800px) and (max-width: 800px) {
-  html {
-    font-size: 26px; } }
-@media only screen and (max-device-width: 800px) and (max-width: 700px), only screen and (max-width: 800px) and (max-width: 700px) {
-  html {
-    font-size: 24px; } }
-@media only screen and (max-device-width: 800px) and (max-width: 600px), only screen and (max-width: 800px) and (max-width: 600px) {
-  html {
-    font-size: 22px; } }
-@media only screen and (max-device-width: 800px) and (max-width: 500px), only screen and (max-width: 800px) and (max-width: 500px) {
-  html {
-    font-size: 20px; } }
-@media only screen and (max-device-width: 800px) and (max-device-width: 800px), only screen and (max-width: 800px) and (max-device-width: 800px) {
-  html {
-    font-size: 26px; } }
-@media only screen and (max-device-width: 800px) and (max-device-width: 700px), only screen and (max-width: 800px) and (max-device-width: 700px) {
-  html {
-    font-size: 24px; } }
-@media only screen and (max-device-width: 800px) and (max-device-width: 600px), only screen and (max-width: 800px) and (max-device-width: 600px) {
-  html {
-    font-size: 22px; } }
-@media only screen and (max-device-width: 800px) and (max-device-width: 500px), only screen and (max-width: 800px) and (max-device-width: 500px) {
-  html {
-    font-size: 20px; } }
-@media only screen and (max-device-width: 800px) and (max-device-width: 400px), only screen and (max-width: 800px) and (max-device-width: 400px) {
-  html {
-    font-size: 18px; } }
-@media only screen and (max-device-width: 800px) and (max-device-width: 360px), only screen and (max-width: 800px) and (max-device-width: 360px) {
-  html {
-    font-size: 16px; } }
-@media only screen and (max-device-width: 800px) and (max-device-width: 320px), only screen and (max-width: 800px) and (max-device-width: 320px) {
-  html {
-    font-size: 14px; } }
-@media only screen and (max-device-width: 800px) and (max-device-width: 320px), only screen and (max-width: 800px) and (max-device-width: 320px) {
-  html {
-    font-size: 12px; } }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.3) and (max-device-width: 1280px), only screen and (min-resolution: 124.8dpi) and (max-device-width: 1280px) {
-  html {
-    font-size: 18px; } }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.3) and (max-device-width: 320px), only screen and (min-resolution: 124.8dpi) and (max-device-width: 320px) {
-  html {
-    font-size: 16px; } }
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 2560px), only screen and (min-resolution: 192dpi) and (max-device-width: 2560px) {
-  html {
-    font-size: 42px; } }
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 1600px), only screen and (min-resolution: 192dpi) and (max-device-width: 1600px) {
-  html {
-    font-size: 20px; } }
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 1280px), only screen and (min-resolution: 192dpi) and (max-device-width: 1280px) {
-  html {
-    font-size: 18px; } }
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 1280px) and (max-device-height: 600px), only screen and (min-resolution: 192dpi) and (max-device-width: 1280px) and (max-device-height: 600px) {
-  html {
-    font-size: 16px; } }
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 320px), only screen and (min-resolution: 192dpi) and (max-device-width: 320px) {
-  html {
-    font-size: 16px; } }
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 320px) and (max-device-height: 480px), only screen and (min-resolution: 192dpi) and (max-device-width: 320px) and (max-device-height: 480px) {
-  html {
-    font-size: 14px; } }
+div.repos, div.stars {
+  padding: 0 20% 1em 20%; }
+  div.repos p, div.stars p {
+    margin-top: 1em; }
+  div.repos table, div.stars table {
+    margin-top: 1em;
+    width: 60%;
+    box-sizing: border-box; }
+    div.repos table th, div.stars table th {
+      text-align: left;
+      font-weight: bold;
+      color: #eaeaea;
+      padding: 0.5em 1em;
+      background-color: #000;
+      font-size: 1em;
+      box-sizing: border-box; }
+    div.repos table td, div.stars table td {
+      text-align: left;
+      vertical-align: top;
+      font-weight: normal;
+      color: #666;
+      padding: 0.5em 1em;
+      background-color: #eaeaea;
+      box-sizing: border-box; }
 
 /*# sourceMappingURL=app.css.map */

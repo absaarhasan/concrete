@@ -1,0 +1,49 @@
+
+<header>
+    <h1>Concrete Media Front-End Practical</h1>
+</header>
+<nav>
+
+
+    <input type="search" class="text" name="option1" ng-model="vm.userInput" placeholder="Git user name(s)" required />
+
+    <input type="button" value="Search" ng-click="vm.init(vm.userInput)">
+
+
+</nav>
+<section>
+    <div class="errors" ng-show="vm.showErrors.state">
+        <p>{{vm.errorMsg.text}}</p>
+    </div>
+
+    <div class="repos" ng-show="vm.showRepos.state">
+        <table>
+            <tr>
+                <th>Repo Name</th>
+                <th>Star Count</th>
+            </tr>
+            <tr ng-repeat="repo in vm.repoResults.data | orderBy:'-stars'">
+                <td>{{repo.name}}</td>
+                <td>{{repo.stars}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="stars" ng-show="vm.showStars.state" >
+        <p>{{vm.starMsg.text}}</p>
+
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Star Count</th>
+            </tr>
+            <tr ng-repeat="result in vm.starResults.data">
+                <td>{{result.user}}</td>
+                <td>{{result.starCount}}</td>
+            </tr>
+        </table>
+    </div>
+
+</section>
+
+

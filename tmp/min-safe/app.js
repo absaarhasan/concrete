@@ -2,15 +2,13 @@
 
     'use strict';
 
-    angular.module('bol', ['ui.router','hmTouchEvents','bol.main','bol.paginated','bol.scroll'])
+    angular.module('con', ['ui.router','con.main'])
 
         .config(['$urlRouterProvider', function( $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise("/1/1");
+            $urlRouterProvider.otherwise("/");
 
-        }]).run(['$rootScope', '$state', function ($rootScope, $state) {
-            $rootScope.$state = $state;
-        }]);
+        }])
 
 })();
 

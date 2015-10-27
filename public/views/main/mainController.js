@@ -5,7 +5,7 @@
         angular.module('con.main', ['ui.router'])
             .factory('mainService', mainService)
             .controller('MainCtrl',  MainCtrl)
-            .config(['$stateProvider', function($stateProvider) {
+            .config(function($stateProvider) {
                 $stateProvider
 
                     .state('main', {
@@ -15,7 +15,7 @@
                         controllerAs: 'vm'
                     })
 
-            }]);
+            });
 
         MainCtrl.$inject = ['mainService'];
 

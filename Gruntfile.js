@@ -8,12 +8,8 @@ module.exports = function(grunt) {
         },
         app: {
             files: {
-                'tmp/min-safe/scrollServices.js': ['public/views/scroll/scrollServices.js'],
-                'tmp/min-safe/scrollController.js': ['public/views/scroll/scrollController.js'],
-                'tmp/min-safe/paginatedServices.js': ['public/views/paginated/paginatedServices.js'],
-                'tmp/min-safe/paginatedController.js': ['public/views/paginated/paginatedController.js'],
-                'tmp/min-safe/mainServices.js': ['public/views/shared/mainServices.js'],
-                'tmp/min-safe/mainController.js': ['public/views/shared/mainController.js'],
+                'tmp/min-safe/mainServices.js': ['public/views/main/mainServices.js'],
+                'tmp/min-safe/mainController.js': ['public/views/main/mainController.js'],
                 'tmp/min-safe/app.js': ['public/app.js']
             }
         }
@@ -23,10 +19,6 @@ module.exports = function(grunt) {
     grunt.config('concat', {
         scripts: {
             src: [
-                'tmp/min-safe/scrollServices.js',
-                'tmp/min-safe/scrollController.js',
-                'tmp/min-safe/paginatedServices.js',
-                'tmp/min-safe/paginatedController.js',
                 'tmp/min-safe/mainServices.js',
                 'tmp/min-safe/mainController.js',
                 'tmp/min-safe/app.js'],
@@ -61,31 +53,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-svgmin');
 
-    grunt.config('svgmin', {
-        options: {
-            plugins: [
-                {
-                    removeViewBox: false
-                }, {
-                    removeUselessStrokeAndFill: false
-                }
-            ]
-        },
-        dist: {
-            files: [
-                {
-                    expand: true,
-                    cwd: 'svg/',
-                    src: ['*.svg'],
-                    dest: 'public/images',
-                    ext: '.svg'
-
-                }
-            ]
-        }
-    });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
 
@@ -114,7 +82,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('build', "Builds the application.",
-        [/*'concat:scripts', 'svgmin' ,*/ 'sass', 'cssmin', 'ngAnnotate', 'concat','uglify' ]);
+        ['sass', 'cssmin', 'ngAnnotate', 'concat','uglify' ]);
 
 
 };
